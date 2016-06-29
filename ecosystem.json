@@ -1,0 +1,19 @@
+{
+  "apps": [
+    {
+      "max_memory_restart": "1G",
+      "autorestart"       : true,
+      "node_args"         : "-use-strict -harmony",
+      "args"              : [],
+      "name"              : "kahn1990PhotoServer",
+      "script"            : "app.js",
+      "cwd"               : "/home/kang/work/kahn1990-photo-server/",
+      "out_file"          : "/home/kang/logs/kahn1990-photo-server/logs/err/err.log",
+      "pid_file"          : "app.pid",
+      "one_launch_only"   : "true",
+      "env"               : {
+        "NODE_ENV": "production"
+      }
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "customBaseDir"   : "/home/kang/logs/kahn1990-photo-server/log4js/test_logs/",
+  "customDefaultAtt": {
+    "type"                : "dateFile",
+    "absolute"            : true,
+    "alwaysIncludePattern": true
+  },
+  "appenders"       : [
+    {
+      "type"    : "console",
+      "category": "console"
+    },
+    {
+      "pattern" : "debug/yyyyMMddhh.log",
+      "category": "logDebug"
+    },
+    {
+      "pattern" : "info/yyyyMMddhh.log",
+      "category": "logInfo"
+    },
+    {
+      "pattern" : "warn/yyyyMMddhh.log",
+      "category": "logWarn"
+    },
+    {
+      "pattern" : "err/yyyyMMddhh.log",
+      "category": "logErr"
+    },
+    {
+      "pattern" : "trace/yyyyMMddhh.log",
+      "category": "logTrace"
+    },
+    {
+      "pattern" : "mysql/info/yyyyMMddhh.log",
+      "category": "mysqlLogInfo"
+    },
+    {
+      "pattern" : "mysql/warn/yyyyMMddhh.log",
+      "category": "mysqlLogWarn"
+    },
+    {
+      "pattern" : "mysql/err/yyyyMMddhh.log",
+      "category": "mysqlLogErr"
+    }
+  ],
+  "replaceConsole"  : true,
+  "levels"          : {
+    "logDebug"    : "DEBUG",
+    "logInfo"     : "ALL",
+    "logWarn"     : "ALL",
+    "logErr"      : "ALL",
+    "logTrace"    : "ALL",
+    "mysqlLogInfo": "ALL",
+    "mysqlLogWarn": "ALL",
+    "mysqlLogErr" : "ALL"
+  }
+}

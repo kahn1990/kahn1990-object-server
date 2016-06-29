@@ -1,0 +1,16 @@
+{
+  "log4js"  : {
+    "dir": null
+  },
+  "server"  : {
+    "port": 4000,
+    "mode": "kahn1990 photo server"
+  },
+  "mysql_db": {
+    "host"    : "rm-2ze6zdl85svw836l9.mysql.rds.aliyuncs.com",
+    "port"    : "3306",
+    "user"    : "maomeiyou",
+    "password": "kangjian1990",
+    "database": "maomeiyou"
+  }
+}
