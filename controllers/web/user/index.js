@@ -7,6 +7,8 @@ const parse  = require('co-body'),
 
 module.exports.home = function*() {
     var data = yield User.test({});
-    yield this.render('home', {pagename: 'awesome people',
-        authors: ['Paul', 'Jim', 'Jane']});
+    yield this.render('home', {
+        pagename: 'awesome people of crsf : '+this.csrf,
+        authors : ['Paul', 'Jim', 'Jane']
+    });
 };

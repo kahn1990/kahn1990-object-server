@@ -2,23 +2,23 @@
 
 "use strict";
 
-var path     = require("path");
-var fs       = require("fs");
-var Loader   = require("loader");
+var path   = require("path"),
+    fs     = require("fs"),
+    config = require("config"),
+    Loader = require("loader");
 
-var viewsDir = path.join(process.cwd(), process.argv[2]);
-var baseDir  = path.join(process.cwd(), process.argv[3]);
+var views = path.join(path.resolve(), config.get('combo').views),
+    base  = path.join(path.resolve(), config.get('combo').base);
 
-var scaned   = Loader.scanDir(viewsDir);
+var scaned = Loader.scanDir(views);
 console.log("Scaned:");
 console.log(scaned);
 
-var justCombo = process.argv[4];
+var justCombo = config.get('combo').justCombo;
 
-var minified = Loader.minify(baseDir, scaned, justCombo);
+var minified = Loader.minify(base, scaned, justCombo);
 console.log(minified);
 console.log("Compile static assets done.");
 
-fs.writeFileSync(path.join(baseDir, "assets.json"), JSON.stringify(Loader.map(minified)));
+fs.writeFileSync(path.join(base, "assets.json"), JSON.stringify(Loader.map(minified)));
 console.log("write assets.json done. assets.json: ");
-console.log(fs.readFileSync(path.join(baseDir, "assets.json"), "utf-8"));

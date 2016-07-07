@@ -1,10 +1,10 @@
 'use strict';
 
-const Sequelize  = require('sequelize');
-const DataTypes  = require('sequelize/lib/data-types');
-const Config     = require('config');
-const Merge      = require('../../lib/merge');
-const Logger     = require('../../log4js/index');
+const Sequelize = require('sequelize');
+const DataTypes = require('sequelize/lib/data-types');
+const config    = require('config');
+const merge     = require('../../lib/merge');
+const logger    = require('../../log4js/index');
 
 require('babel-polyfill');
 
@@ -15,7 +15,7 @@ require('babel-polyfill');
 
 Sequelize.LONGTEXT = DataTypes.LONGTEXT = DataTypes.TEXT;
 
-if (Config.get('mysql_db').config.dialect === 'mysql') {
+if (config.get('mysql_db').config.dialect === 'mysql') {
 
     Sequelize.LONGTEXT = DataTypes.LONGTEXT = 'LONGTEXT';
 }
@@ -24,19 +24,16 @@ if (Config.get('mysql_db').config.dialect === 'mysql') {
 // 开始实例化 sequelize
 ////////////////////////////////////////////////////////
 
-module.exports = sequelize;
+const sequelize = () => {
 
-
-function sequelize() {
-    
-    return  new Sequelize(
-        Config.get('mysql_db').config.database,
-        Config.get('mysql_db').config.username,
-        Config.get('mysql_db').config.password,
+    return new Sequelize(
+        config.get('mysql_db').config.database,
+        config.get('mysql_db').config.username,
+        config.get('mysql_db').config.password,
         {
-            host     : Config.get('mysql_db').config.host,
+            host     : config.get('mysql_db').config.host,
             dialect  : 'mysql',
-            port     : Config.get('mysql_db').config.port,
+            port     : config.get('mysql_db').config.port,
             pool     : {
                 max : 10,
                 min : 0,
@@ -52,16 +49,16 @@ function sequelize() {
                 collate   : 'utf8_general_ci'
             }
         });
-}
+};
 
-
+module.exports = sequelize;
 
 ///////////////////////////////////////
 // sequelize 对象上面绑定测试连接方法
 // 用以校验是否连接成功
 //////////////////////////////////////
 
-Merge(
+merge(
     sequelize,
     {
         testConnectionMysql: function (sequelize) {
@@ -70,11 +67,11 @@ Merge(
                 .authenticate()
                 .then(function (data) {
 
-                    Logger.info("[" + __filename + "] MYSQL 关联成功 - " + data);
+                    logger.info("[" + __filename + "] MYSQL 关联成功 - " + data);
                 })
                 .catch(function (error) {
 
-                    Logger.debug("[" + __filename + "] MYSQL 关联失败 - " + error);
+                    logger.debug("[" + __filename + "] MYSQL 关联失败 - " + error);
                 });
         }
     });

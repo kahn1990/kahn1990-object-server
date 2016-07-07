@@ -1,0 +1,23 @@
+{
+  "name"     : "default",
+  "version"  : "0.0.1",
+  "source"   : {
+    "include": [
+      "doc/test",
+      "lib",
+      "log4js",
+      "server/lib"
+    ],
+    "exclude": [
+      "node_modules"
+    ],
+    "suffix" : [
+      "js"
+    ],
+    "output" : "doc/dox"
+  },
+  "markdown" : {
+    "switch": false
+  },
+  "parameter": {}
+}

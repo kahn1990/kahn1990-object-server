@@ -1,20 +1,24 @@
 {
-  "log4js"  : {
+  "log4js"    : {
     "dir": "log4js/log4js_development.json"
   },
-  "server"  : {
+  "server"    : {
     "port": 4000,
     "mode": "kahn1990 photo server"
   },
-  "mysql_db": {
+  "mysql_db"  : {
     "config": {
       "dialect"        : "mysql",
-      "host"           : "192.168.1.100",
+      "host"           : "192.168.1.103",
       "port"           : "3306",
       "username"       : "root",
       "password"       : "000000",
       "database"       : "maomeiyou",
       "connectionLimit": 10
     }
+  },
+  "combo":{
+    "views":[],
+    "base":[]
   }
 }
