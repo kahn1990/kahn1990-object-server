@@ -17,8 +17,8 @@ module.exports = () => {
         helmet.frameguard({
             action: 'allow-from',
             domain: 'http://example.com'
-        }),
-/*        helmet.contentSecurityPolicy({
+        })/*,
+        helmet.contentSecurityPolicy({
             directives    : {
                 defaultSrc: ["'self'", 'default.com'],
                 scriptSrc : ["'self'", "'unsafe-inline'"],
@@ -32,7 +32,7 @@ module.exports = () => {
             setAllHeaders : true,
             disableAndroid: false,
             browserSniff  : true
-        }),*/
+        }),
         helmet.hsts({
             maxAge           : NINETYDAYSINMILLISECONDS,
             includeSubdomains: true
@@ -49,6 +49,6 @@ module.exports = () => {
             includeSubdomains: true,
             reportUri        : 'http://example.com', 
             reportOnly       : false
-        })
+        })*/
     ]);
 };

@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>索引</title>
+    <link rel="stylesheet" href="./jsdoc_static/markdown/base.css">
+    <link id="linkstyle" rel='stylesheet' href='./jsdoc_static/markdown/markdown14.css'/>
+    <link rel="stylesheet" href="./jsdoc_static/prettify.min.css">
+</head>
+<body>
+<div id="preview-box">
+    <h3>文件信息<a href="./index.html"> 返回目录</a></h3>
+    <div>
+        <table class="table">
+            <tbody>
+            <tr>
+                <td>源文件名：</td>
+                <td>README.md</td>
+            </tr>
+            <tr>
+                <td>源文件路径：</td>
+                <td>.</td>
+            </tr>
+            <tr>
+                <td>生成文件名：</td>
+                <td>UkVBRE1FLm1k.html</td>
+            </tr>
+            <tr>
+                <td>生成文件路径：</td>
+                <td>doc/dox</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<hr/>
+<div class="params" id="readme">
+    
+    <h1>图片处理服务器</h1>
+<ul>
+<li>平台： debian 系统<ul>
+<li><code>sudo apt-get install ImageMagick</code></li>
+<li><code>sudo apt-get install graphicsMagick</code></li>
+</ul>
+</li>
+<li>语言： node.js</li>
+</ul>
+<h2>守护进程</h2>
+<ul>
+<li>开发环境使用 nodemon<ul>
+<li>执行 <code>npm start</code>，如果不小心  <code>ctrl+c</code> 退出了终端界面但 node 进程仍然存在，可以命令行执行 <code>$ lsof -i :3000</code> 或者 <code>$ netstat -nap | grep node</code>，然后 <code>$ kill -9 [进程ID]</code> 杀死进程。</li>
+</ul>
+</li>
+<li>生产环境使用 pm2<ul>
+<li>执行 <code>sh start.sh start</code> 开始</li>
+<li>执行 <code>sh start.sh stop</code> 关闭</li>
+</ul>
+</li>
+</ul>
+<h3>pm2 启动多个 js 文件守护进程</h3>
+<p>首先创建 ecosystem.json 文件，然后通过 <code>pm2 start apps.json</code> 来启动 ecosystem.json 里面定义的 apps：</p><pre><code>    {
+      &quot;apps&quot;: [
+        {
+          &quot;max_memory_restart&quot;: &quot;1G&quot;,
+          &quot;autorestart&quot;       : true,
+          &quot;node_args&quot;         : &quot;-use-strict -harmony&quot;,
+          &quot;args&quot;              : [],
+          &quot;name&quot;              : &quot;kahn1990PhotoServer&quot;,
+          &quot;script&quot;            : &quot;app.js&quot;,
+          &quot;cwd&quot;               : &quot;/home/kang/work/kahn1990-photo-server/&quot;,
+          &quot;error_file&quot;        : &quot;app-err.log&quot;,
+          &quot;out_file&quot;          : &quot;app-out.log&quot;,
+          &quot;pid_file&quot;          : &quot;app.pid&quot;,
+          &quot;one_launch_only&quot;   : &quot;true&quot;,
+          &quot;env&quot;               : {
+            &quot;NODE_ENV&quot;: &quot;production&quot;
+          }
+        }
+      ]
+    }
+</code></pre><p>需要注意的是 pm2 以 cluster 集群方式发布 app，可以高效地利用多核cpu，有效提升吞吐量。</p><h2>生产环境</h2>
+<p>js 文件里：</p><pre><code>process.env.NODE_ENV = &#39;production&#39;;
+</code></pre><p>package.json 文件里：</p><pre><code>{
+  ...
+  &quot;scripts&quot;: {
+    &quot;start&quot;: &quot;NODE_ENV=production node ./app&quot;
+  }
+  ...
+}
+</code></pre><p>node 命令：</p><pre><code>NODE_ENV=production node app.js
+</code></pre><p>pm2: </p><pre><code>NODE_ENV=production pm2 start app.js
+</code></pre><p>这里有个第三方 <code>config</code> 模块，可以全局定义一些属性，如：</p><pre><code>var config = require(&#39;config&#39;);
+//... 
+var dbConfig = config.get(&#39;Customer.dbConfig&#39;);
+db.connect(dbConfig, ...);
+
+if (config.has(&#39;optionalFeature.detail&#39;)) {
+  var detail = config.get(&#39;optionalFeature.detail&#39;);
+  //... 
+}
+
+switch(process.env.NODE_ENV){
+    case &#39;production&#39;: ... break;
+    case &#39;test&#39;: ... break;
+    default: ...break;
+}
+</code></pre>
+    
+</div>
+<footer>
+    <a class="forkme" href="https://github.com/kahn1990/jsdoc-zero">Fork me on GitHub</a>
+</footer>
+<script type="application/javascript" src="./jsdoc_static/jquery.min.js"></script>
+<script type="application/javascript" src="./jsdoc_static/prettify.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $(window).load(function () {
+            $("pre").addClass("prettyprint source linenums");
+            prettyPrint();
+        });
+    });
+    var linkstyle = document.getElementById('linkstyle');
+    var themes    = document.getElementById('themes');
+
+    themes.onchange = function (e) {
+        linkstyle.href = themes.value;
+    };
+</script>
+</body>
+</html>
+
+
+

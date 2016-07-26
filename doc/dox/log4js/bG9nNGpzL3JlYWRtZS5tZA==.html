@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>索引</title>
+    <link rel="stylesheet" href="../jsdoc_static/markdown/base.css">
+    <link id="linkstyle" rel='stylesheet' href='../jsdoc_static/markdown/markdown14.css'/>
+    <link rel="stylesheet" href="../jsdoc_static/prettify.min.css">
+</head>
+<body>
+<div id="preview-box">
+    <h3>文件信息<a href="./index.html"> 返回目录</a></h3>
+    <div>
+        <table class="table">
+            <tbody>
+            <tr>
+                <td>源文件名：</td>
+                <td>readme.md</td>
+            </tr>
+            <tr>
+                <td>源文件路径：</td>
+                <td>log4js</td>
+            </tr>
+            <tr>
+                <td>生成文件名：</td>
+                <td>bG9nNGpzL3JlYWRtZS5tZA==.html</td>
+            </tr>
+            <tr>
+                <td>生成文件路径：</td>
+                <td>doc/dox/log4js</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<hr/>
+<div class="params" id="readme">
+    
+    <h1>包装 log4js</h1>
+<p>在住文件入口引入:<br />    var logger     = require(&#39;../../log4js/index.js&#39;);<br />    app.use(logger(config.get(&quot;log4js&quot;).dir));</p><p>其中 config 是一个全局共享对象</p><pre><code>var config     = require(&#39;config&#39;);
+</code></pre><p>另外需要注意的是 <code>logger(config.get(&quot;log4js&quot;).dir)</code> 中的 <code>config.get(&quot;log4js&quot;).dir</code> 为 null，代表执行生产环境的 log4js 配置文件。</p>
+    
+</div>
+<footer>
+    <a class="forkme" href="https://github.com/kahn1990/jsdoc-zero">Fork me on GitHub</a>
+</footer>
+<script type="application/javascript" src="../jsdoc_static/jquery.min.js"></script>
+<script type="application/javascript" src="../jsdoc_static/prettify.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $(window).load(function () {
+            $("pre").addClass("prettyprint source linenums");
+            prettyPrint();
+        });
+    });
+    var linkstyle = document.getElementById('linkstyle');
+    var themes    = document.getElementById('themes');
+
+    themes.onchange = function (e) {
+        linkstyle.href = themes.value;
+    };
+</script>
+</body>
+</html>
+
+
+

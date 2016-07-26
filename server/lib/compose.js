@@ -70,3 +70,7 @@ function compose(middleware){
  */
 
 function *noop(){}
+
+function * createGenerator(next) {
+    return yield next()
+}
