@@ -1,12 +1,7 @@
 'use strict';
 
-/**
- * CORS middleware
- *
- * @param {Object} [options]
- * @return {GeneratorFunction}
- * @api public
- */
+const _ = require('underscore');
+
 module.exports = function getMiddleware(options) {
 
     options = options || {};

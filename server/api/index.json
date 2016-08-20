@@ -1,0 +1,38 @@
+{
+  "dns"                : {
+    "status" : true,
+    "content": {
+      "X-DNS-Prefetch-Control": {
+        "true" : "on",
+        "false": "off"
+      }
+    }
+  },
+  "dont-sniff-mimetype": {
+    "status" : true,
+    "content": {
+      "X-Content-Type-Options": "nosniff"
+    }
+  },
+  "nocache"            : {
+    "status" : true,
+    "content": {
+      "Surrogate-Control": "no-store",
+      "Cache-Control"    : "no-store, no-cache, must-revalidate, proxy-revalidate",
+      "Pragma"           : "no-cache",
+      "Expires"          : "0",
+    }
+  },
+  "hide-powered-by"     : {
+    "status" : true,
+    "content": {
+      "X-Powered-By": "no-store"
+    }
+  },
+  "ienoopen"    : {
+    "status" : true,
+    "content": {
+      "X-Download-Options": "noopen"
+    }
+  },
+}

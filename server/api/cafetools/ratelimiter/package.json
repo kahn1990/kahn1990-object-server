@@ -1,0 +1,64 @@
+{
+  "name": "ratelimiter",
+  "version": "2.1.3",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/visionmedia/node-ratelimiter.git"
+  },
+  "description": "abstract rate limiter backed by redis",
+  "keywords": [
+    "rate",
+    "ratelimit",
+    "limiter",
+    "limit"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "ioredis": "1.15.1",
+    "mocha": "*",
+    "redis": "2.6.0-1",
+    "should": "*"
+  },
+  "license": "MIT",
+  "contributors": [
+    {
+      "name": "Francois-Guillaume Ribreau",
+      "email": "npm@fgribreau.com"
+    }
+  ],
+  "gitHead": "af44cd486baad6c6018c072bbb14aaffe2856a7c",
+  "bugs": {
+    "url": "https://github.com/visionmedia/node-ratelimiter/issues"
+  },
+  "homepage": "https://github.com/visionmedia/node-ratelimiter#readme",
+  "_id": "ratelimiter@2.1.3",
+  "scripts": {},
+  "_shasum": "c5658e4954fab3451ec4d48752fc59d91230e96a",
+  "_from": "ratelimiter@latest",
+  "_npmVersion": "2.15.1",
+  "_nodeVersion": "4.2.4",
+  "_npmUser": {
+    "name": "noamshemesh",
+    "email": "noam@bigpanda.io"
+  },
+  "maintainers": [
+    {
+      "name": "tjholowaychuk",
+      "email": "tj@vision-media.ca"
+    },
+    {
+      "name": "noamshemesh",
+      "email": "noamshemesh@gmail.com"
+    }
+  ],
+  "dist": {
+    "shasum": "c5658e4954fab3451ec4d48752fc59d91230e96a",
+    "tarball": "https://registry.npmjs.org/ratelimiter/-/ratelimiter-2.1.3.tgz"
+  },
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/ratelimiter-2.1.3.tgz_1460374848107_0.7482325122691691"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/ratelimiter/-/ratelimiter-2.1.3.tgz"
+}
